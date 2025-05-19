@@ -1,5 +1,5 @@
-import { Task } from '@serenity-js/core';
-import { Click } from '@serenity-js/web';
+import { Task, Wait } from '@serenity-js/core';
+import { Click, isVisible } from '@serenity-js/web';
 
 import { Examples } from './ui/Examples';
 
@@ -9,7 +9,9 @@ import { Examples } from './ui/Examples';
  */
 export const PickExample = {
     called: (name: string) =>
-        Task.where(`#actor picks example called ${ name }`,
+        Task.where(
+            `#actor picks example called ${name}`,
+            Wait.until(Examples.called(name), isVisible()),
             Click.on(Examples.called(name)),
         ),
-}
+};

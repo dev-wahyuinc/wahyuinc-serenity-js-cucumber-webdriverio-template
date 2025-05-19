@@ -1,7 +1,7 @@
 The Internet - Authentication
 
 Narrative:
-In order to learn how to implement *high-quality automated tests*
+In order to learn how to implement _high-quality automated tests_
 As a Curious Developer
 I'd like to have a place to practice
 

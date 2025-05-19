@@ -1,8 +1,14 @@
 {
-  "recommendations": [
-    "dbaeumer.vscode-eslint",
-    "EditorConfig.EditorConfig",
-    "CucumberOpen.cucumber-official"
-  ],
-  "unwantedRecommendations": []
+    "recommendations": [
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "ms-vscode-remote.remote-wsl",
+        "editorconfig.editorconfig",
+        "mikestead.dotenv",
+        "streetsidesoftware.code-spell-checker",
+        "usernamehw.errorlens",
+        "igorsbitnev.error-gutters",
+        "CucumberOpen.cucumber-official"
+    ],
+    "unwantedRecommendations": []
 }

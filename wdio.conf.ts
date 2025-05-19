@@ -1,7 +1,6 @@
 import { WebdriverIOConfig } from '@serenity-js/webdriverio';
 
 export const config: WebdriverIOConfig = {
-
     // =========================
     // Serenity/JS Configuration
     // =========================
@@ -9,7 +8,6 @@ export const config: WebdriverIOConfig = {
     // Enable Serenity/JS framework adapter
     // see: https://serenity-js.org/handbook/test-runners/webdriverio/
     framework: '@serenity-js/webdriverio',
-
     serenity: {
         // Use Cucumber.js test runner adapter
         // see: https://serenity-js.org/api/cucumber/
@@ -19,11 +17,17 @@ export const config: WebdriverIOConfig = {
         // see: https://serenity-js.org/handbook/reporting/
         crew: [
             '@serenity-js/console-reporter',
-            [ '@serenity-js/serenity-bdd',          { specDirectory: './features'             } ],
-            [ '@serenity-js/web:Photographer',      { strategy: 'TakePhotosOfInteractions'    } ],  // slower execution, more comprehensive reports
+            ['@serenity-js/serenity-bdd', { specDirectory: './features' }],
+            [
+                '@serenity-js/web:Photographer',
+                { strategy: 'TakePhotosOfInteractions' },
+            ], // slower execution, more comprehensive reports
             // [ '@serenity-js/web:Photographer',   { strategy: 'TakePhotosOfFailures'        } ],  // fast execution, screenshots only when tests fail
-            [ '@serenity-js/core:ArtifactArchiver', { outputDirectory: 'target/site/serenity' } ],
-        ]
+            [
+                '@serenity-js/core:ArtifactArchiver',
+                { outputDirectory: 'target/site/serenity' },
+            ],
+        ],
     },
 
     automationProtocol: 'webdriver',
@@ -41,9 +45,7 @@ export const config: WebdriverIOConfig = {
     // If you are calling `wdio` from an NPM script (see https://docs.npmjs.com/cli/run-script),
     // then the current working directory is where your `package.json` resides, so `wdio`
     // will be called from there.
-    specs: [
-        './features/**/*.feature'
-    ],
+    specs: ['./features/**/*.feature'],
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -70,37 +72,38 @@ export const config: WebdriverIOConfig = {
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
     // https://docs.saucelabs.com/reference/platforms-configurator
     //
-    capabilities: [{
+    capabilities: [
+        {
+            // maxInstances can get overwritten per capability. So if you have an in-house Selenium
+            // grid with only 5 firefox instances available you can make sure that not more than
+            // 5 instances get started at a time.
+            // maxInstances: 5,
+            //
+            browserName: 'chrome',
 
-        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-        // grid with only 5 firefox instances available you can make sure that not more than
-        // 5 instances get started at a time.
-        // maxInstances: 5,
-        //
-        browserName: 'chrome',
+            // See https://webdriver.io/blog/2023/07/31/driver-management
+            browserVersion: 'stable',
 
-        // See https://webdriver.io/blog/2023/07/31/driver-management
-        browserVersion: 'stable',
+            acceptInsecureCerts: true,
+            // If outputDir is provided WebdriverIO can capture driver session logs
+            // it is possible to configure which logTypes to include/exclude.
+            // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
+            // excludeDriverLogs: ['bugreport', 'server'],
 
-        acceptInsecureCerts: true,
-        // If outputDir is provided WebdriverIO can capture driver session logs
-        // it is possible to configure which logTypes to include/exclude.
-        // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
-        // excludeDriverLogs: ['bugreport', 'server'],
-
-        'goog:chromeOptions': {
-            args: [
-                '--disable-web-security',
-                '--allow-file-access-from-files',
-                '--allow-file-access',
-                '--disable-infobars',
-                '--ignore-certificate-errors',
-                '--headless',
-                '--disable-gpu',
-                '--window-size=1024x768',
-            ]
-        }
-    }],
+            'goog:chromeOptions': {
+                args: [
+                    '--disable-web-security',
+                    '--allow-file-access-from-files',
+                    '--allow-file-access',
+                    '--disable-infobars',
+                    '--ignore-certificate-errors',
+                    // '--headless',
+                    '--disable-gpu',
+                    '--window-size=1024x768',
+                ],
+            },
+        },
+    ],
     //
     // ===================
     // Test Configurations
@@ -171,17 +174,21 @@ export const config: WebdriverIOConfig = {
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
         require: [
-            './features/support/*.ts',
-            './features/step-definitions/*.ts'
+            './test/support/*.ts',
+            // './features/step-definitions/*.ts',
+            './test/step-definitions/**/*.steps.ts',
         ],
         // <string[]> (type[:path]) specify native Cucumber.js output format, if needed. Optionally supply PATH to redirect formatter output (repeatable)
-        format: [ ],
+        format: [],
         // <string> (name) specify the profile to use
         profile: '',
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string[] | string> (expression) only execute the features or scenarios with tags matching the expression
-        tags: [],
+        tags: [
+            // '@wip',
+            // 'not @manual'
+        ],
         // <number> timeout for step definitions
         timeout: 60000,
     },
@@ -330,10 +337,10 @@ export const config: WebdriverIOConfig = {
     // onComplete: function(exitCode, config, capabilities, results) {
     // },
     /**
-    * Gets executed when a refresh happens.
-    * @param {String} oldSessionId session ID of the old session
-    * @param {String} newSessionId session ID of the new session
-    */
+     * Gets executed when a refresh happens.
+     * @param {String} oldSessionId session ID of the old session
+     * @param {String} newSessionId session ID of the new session
+     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
-}
+};

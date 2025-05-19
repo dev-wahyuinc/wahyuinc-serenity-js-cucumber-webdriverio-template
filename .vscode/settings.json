@@ -1,15 +1,63 @@
 {
-  "files.autoSave": "onFocusChange",
-  "workbench.startupEditor": "readme",
-  "workbench.tree.indent": 12,
-  "cucumber.features": [
-    "features/**/*.feature"
-  ],
-  "cucumber.glue": [
-    "features/**/*.steps.ts"
-  ],
-  "cucumber.parameterTypes": [
-    { "name": "actor", "regexp": "[A-Z][a-z]+" },
-    { "name": "pronoun", "regexp": "he|she|they|his|her|their" }
-  ]
+    "prettier.useEditorConfig": false,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.formatOnPaste": true,
+    "editor.codeActionsOnSave": {
+        "source.organizeImports": "explicit",
+        "source.fixAll.eslint": "explicit"
+    },
+    "search.exclude": {
+        "**/dist/": true,
+        "**/node_modules/": true,
+        "**/build/": true,
+        "**/coverage/": true,
+        "**/.git/": true,
+        "**/.DS_Store": true,
+        "**/.cache": true,
+        "**/.pnp.*": true,
+        "**/.yarn": true,
+        "**/yarn-error.log": true,
+        "**/yarn.lock": true
+    },
+    "eslint.validate": ["javascript", "typescript"],
+    "eslint.probe": [
+        "astro",
+        "javascript",
+        "typescript",
+        "html",
+        "mdx",
+        "vue",
+        "json",
+        "jsonc"
+    ],
+    "eslint.rules.customizations": [{ "rule": "'*", "severity": "warn" }],
+    "workbench.startupEditor": "readme",
+    "eslint.useFlatConfig": true,
+    "prettier.prettierPath": "./node_modules/prettier",
+    "prettier.configPath": ".prettierrc.json",
+    "cucumber.features": ["features/**/*.feature"],
+    "cucumber.glue": [
+        "features/**/*.steps.ts",
+        "*test/step-definitions/**/*.steps.ts"
+    ],
+    "cucumber.parameterTypes": [
+        { "name": "actor", "regexp": "[A-Z][a-z]+" },
+        { "name": "pronoun", "regexp": "he|she|they|his|her|their" }
+    ],
+    "cSpell.words": [
+        "appium",
+        "browserstack",
+        "bugreport",
+        "infobars",
+        "initialise",
+        "initialising",
+        "Molak",
+        "packagejson",
+        "specfile",
+        "specfiles",
+        "sumologic",
+        "wahyuinc",
+        "waitfor"
+    ]
 }

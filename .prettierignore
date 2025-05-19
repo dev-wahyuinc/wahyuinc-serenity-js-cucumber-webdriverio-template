@@ -1,0 +1,10 @@
+# Ignore artifacts:
+build
+coverage
+LICENSE.md
+README.md
+SECURITY.md
+package-lock.json
+.github
+.gitpod.yml
+NOTICE.md

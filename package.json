@@ -1,65 +1,78 @@
 {
-  "name": "serenity-js-cucumber-webdriverio-template",
-  "version": "3.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clean": "rimraf target",
-    "test": "failsafe clean test:execute test:report",
-    "test:execute": "wdio wdio.conf.ts",
-    "test:report": "serenity-bdd run --features ./features",
-    "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o",
-    "lint": "eslint --ext ts --config .eslintrc.js .",
-    "lint:fix": "npm run lint -- --fix"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/serenity-js/serenity-js-cucumber-webdriverio-template.git"
-  },
-  "keywords": [
-    "serenity-js",
-    "bdd",
-    "cucumber",
-    "testing",
-    "webdriverio"
-  ],
-  "author": "Jan Molak <jan.molak@smartcodeltd.co.uk>",
-  "license": "Apache-2.0",
-  "bugs": {
-    "url": "https://github.com/serenity-js/serenity-js/issues"
-  },
-  "homepage": "https://serenity-js.org",
-  "engines": {
-    "node": "^18.12 || ^20 || ^22"
-  },
-  "dependencies": {
-    "@cucumber/cucumber": "^11.1.1",
-    "@serenity-js/assertions": "^3.31.0",
-    "@serenity-js/console-reporter": "^3.31.0",
-    "@serenity-js/core": "^3.31.0",
-    "@serenity-js/cucumber": "^3.31.0",
-    "@serenity-js/serenity-bdd": "^3.31.0",
-    "@serenity-js/web": "^3.31.0",
-    "@serenity-js/webdriverio": "^3.31.0",
-    "@wdio/cli": "^9.4.2",
-    "@wdio/globals": "^9.4.2",
-    "@wdio/local-runner": "^9.4.2",
-    "@wdio/spec-reporter": "^9.4.2",
-    "webdriverio": "^9.4.2"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^7.18.0",
-    "@typescript-eslint/parser": "^7.18.0",
-    "eslint": "^8.57.1",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint-plugin-unicorn": "^52.0.0",
-    "eslint-plugin-unused-imports": "^3.2.0",
-    "http-server": "^14.1.1",
-    "mkdirp": "^3.0.1",
-    "npm-failsafe": "^1.3.0",
-    "rimraf": "^6.0.1",
-    "ts-node": "^10.9.2",
-    "typescript": "^5.7.2"
-  }
+    "name": "wahyuinc-serenity-js-cucumber-webdriverio-template",
+    "version": "3.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clean": "rimraf target",
+        "test": "failsafe clean test:execute test:report",
+        "lint": "eslint --config eslint.config.mjs .",
+        "lint:fix": "npm run lint -- --fix",
+        "prettier": "npx prettier --check .",
+        "prettier:fix": "npx prettier --write .",
+        "test:execute": "wdio wdio.conf.ts",
+        "test:report": "serenity-bdd run --features ./features",
+        "start": "mkdirp target/site/serenity && npx http-server -p 8080 target/site/serenity -s -o"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/dev-wahyuinc/wahyuinc-serenity-js-cucumber-webdriverio-template.git"
+    },
+    "keywords": [
+        "serenity-js",
+        "bdd",
+        "cucumber",
+        "testing",
+        "webdriverio"
+    ],
+    "author": "Jan Molak <jan.molak@smartcodeltd.co.uk>",
+    "license": "Apache-2.0",
+    "bugs": {
+        "url": "https://github.com/serenity-js/serenity-js/issues"
+    },
+    "homepage": "https://serenity-js.org",
+    "engines": {
+        "node": "^18.12 || ^20 || ^22"
+    },
+    "dependencies": {
+        "@cucumber/cucumber": "^11.1.1",
+        "@serenity-js/assertions": "^3.31.0",
+        "@serenity-js/console-reporter": "^3.31.0",
+        "@serenity-js/core": "^3.31.0",
+        "@serenity-js/cucumber": "^3.31.0",
+        "@serenity-js/serenity-bdd": "^3.31.0",
+        "@serenity-js/web": "^3.31.0",
+        "@serenity-js/webdriverio": "^3.31.0",
+        "@wdio/cli": "^9.4.2",
+        "@wdio/globals": "^9.4.2",
+        "@wdio/local-runner": "^9.4.2",
+        "@wdio/spec-reporter": "^9.4.2",
+        "webdriverio": "^9.4.2"
+    },
+    "devDependencies": {
+        "@eslint/js": "^9.26.0",
+        "@eslint/markdown": "^6.4.0",
+        "@typescript-eslint/eslint-plugin": "^8.32.0",
+        "@typescript-eslint/parser": "^8.32.0",
+        "eslint": "^9.26.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.31.0",
+        "eslint-plugin-jsdoc": "^50.6.1",
+        "eslint-plugin-prettier": "^5.2.1",
+        "eslint-plugin-simple-import-sort": "^12.1.1",
+        "eslint-plugin-unicorn": "^56.0.1",
+        "eslint-plugin-unused-imports": "^4.1.4",
+        "http-server": "^14.1.1",
+        "mkdirp": "^3.0.1",
+        "npm-failsafe": "^1.3.0",
+        "prettier": "^3.5.3",
+        "prettier-eslint": "^16.3.0",
+        "prettier-plugin-curly": "^0.3.1",
+        "prettier-plugin-gherkin": "^3.1.2",
+        "prettier-plugin-packagejson": "^2.5.8",
+        "rimraf": "^6.0.1",
+        "ts-node": "^10.9.2",
+        "typescript": "^5.8.3",
+        "typescript-eslint": "^8.32.0"
+    }
 }

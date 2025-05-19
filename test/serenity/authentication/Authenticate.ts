@@ -1,5 +1,5 @@
-import { Task } from '@serenity-js/core';
-import { Click, Enter } from '@serenity-js/web';
+import { Duration, Task, Wait } from '@serenity-js/core';
+import { Click, Enter, isVisible } from '@serenity-js/web';
 
 import { LoginForm } from './ui/LoginForm';
 
@@ -16,9 +16,14 @@ import { LoginForm } from './ui/LoginForm';
  */
 export const Authenticate = {
     using: (username: string, password: string) =>
-        Task.where(`#actor logs in as ${ username }`,
+        Task.where(
+            `#actor logs in as ${username}`,
+            Wait.upTo(Duration.ofSeconds(10)).until(
+                LoginForm.usernameField(),
+                isVisible(),
+            ),
             Enter.theValue(username).into(LoginForm.usernameField()),
             Enter.theValue(password).into(LoginForm.passwordField()),
             Click.on(LoginForm.loginButton()),
         ),
-}
+};

@@ -8,5 +8,7 @@ export const LoginForm = {
         PageElement.located(By.id('password')).describedAs('password field'),
 
     loginButton: () =>
-        PageElement.located(By.css('button[type="submit"]')).describedAs('login button'),
-}
+        PageElement.located(By.css('button[type="submit"]')).describedAs(
+            'login button',
+        ),
+};

@@ -1,0 +1,17 @@
+{
+    "$schema": "https://json.schemastore.org/prettierrc",
+    "overrides": [
+        { "files": ".nvmrc", "options": { "parser": "yaml" } },
+        {
+            "files": [".*", "*.json"],
+            "options": {
+                "singleQuote": false
+            }
+        }
+    ],
+    "plugins": ["prettier-plugin-curly", "prettier-plugin-gherkin"],
+    "useTabs": false,
+    "tabWidth": 4,
+    "singleQuote": true,
+    "endOfLine": "auto"
+}

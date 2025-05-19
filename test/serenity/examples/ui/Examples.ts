@@ -1,5 +1,5 @@
 import { equals } from '@serenity-js/assertions';
-import {  QuestionAdapter } from '@serenity-js/core';
+import { QuestionAdapter } from '@serenity-js/core';
 import { By, PageElement, PageElements, Text } from '@serenity-js/web';
 
 /**
@@ -9,7 +9,9 @@ import { By, PageElement, PageElements, Text } from '@serenity-js/web';
  */
 export class Examples {
     static all = () =>
-        PageElements.located(By.css('ul li a')).describedAs('available examples')
+        PageElements.located(By.css('ul li a')).describedAs(
+            'available examples',
+        );
 
     /**
      * Note how I pick an element which text matches `name` without having to use XPath
@@ -18,7 +20,5 @@ export class Examples {
      * @param name
      */
     static called = (name: string): QuestionAdapter<PageElement<unknown>> =>
-        Examples.all()
-            .where(Text, equals(name))
-            .first()
+        Examples.all().where(Text, equals(name)).first();
 }
