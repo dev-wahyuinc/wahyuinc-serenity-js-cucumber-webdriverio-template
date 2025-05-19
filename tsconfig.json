@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "types": [
+      "node",
+      "@wdio/globals/types"
+    ],
+    "lib": ["es2021", "dom"],
+    "target": "es2021"
+  },
+
+  "include": [
+    "features/**/*.ts",
+    "test/**/*.ts"
+  ],
+
+  "exclude": [
+    "node_modules"
+  ]
+}
