@@ -97,9 +97,9 @@ export const config: WebdriverIOConfig = {
                     '--allow-file-access',
                     '--disable-infobars',
                     '--ignore-certificate-errors',
-                    // '--headless',
+                    '--headless',
                     '--disable-gpu',
-                    '--window-size=1024x768',
+                    '--window-size=1920,1080',
                 ],
             },
         },
@@ -139,7 +139,7 @@ export const config: WebdriverIOConfig = {
     baseUrl: 'https://the-internet.herokuapp.com/',
     //
     // Default timeout for all waitFor* commands.
-    waitforTimeout: 10000,
+    waitforTimeout: 10 * 1000,
     //
     // Default timeout in milliseconds for request
     // if browser driver or grid doesn't send response
@@ -175,6 +175,7 @@ export const config: WebdriverIOConfig = {
         // <string[]> (file/dir) require files before executing features
         require: [
             './test/support/*.ts',
+            './test/support/hook/*.ts', // cucumber hook
             // './features/step-definitions/*.ts',
             './test/step-definitions/**/*.steps.ts',
         ],
@@ -190,7 +191,7 @@ export const config: WebdriverIOConfig = {
             // 'not @manual'
         ],
         // <number> timeout for step definitions
-        timeout: 60000,
+        timeout: 1 * 1000,
     },
 
     //

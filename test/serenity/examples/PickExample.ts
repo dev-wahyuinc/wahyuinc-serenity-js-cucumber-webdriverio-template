@@ -1,4 +1,4 @@
-import { Task, Wait } from '@serenity-js/core';
+import { Duration, Task, Wait } from '@serenity-js/core';
 import { Click, isVisible } from '@serenity-js/web';
 
 import { Examples } from './ui/Examples';
@@ -11,7 +11,10 @@ export const PickExample = {
     called: (name: string) =>
         Task.where(
             `#actor picks example called ${name}`,
-            Wait.until(Examples.called(name), isVisible()),
+            Wait.upTo(Duration.ofSeconds(10)).until(
+                Examples.called(name),
+                isVisible(),
+            ),
             Click.on(Examples.called(name)),
         ),
 };

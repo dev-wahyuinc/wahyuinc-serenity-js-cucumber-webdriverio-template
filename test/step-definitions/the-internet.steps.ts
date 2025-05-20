@@ -1,7 +1,7 @@
 import { Given, Then, When } from '@cucumber/cucumber';
 import { Actor } from '@serenity-js/core';
-import { Navigate } from '@serenity-js/web';
 
+import { Navigate } from '@serenity-js/web';
 import { Authenticate, VerifyAuthentication } from '../serenity/authentication';
 import { PickExample } from '../serenity/examples';
 
@@ -11,14 +11,15 @@ import { PickExample } from '../serenity/examples';
  *
  * {actor} and {pronoun} are custom expressions defined under support/parameters.ts
  */
-Given(
-    '{actor} starts with the {string} example',
-    async (actor: Actor, exampleName: string) =>
-        actor.attemptsTo(Navigate.to('/'), PickExample.called(exampleName)),
-);
+// Given(
+//     '{actor} starts with the {string} example',
+//     async (actor: Actor, exampleName: string) =>
+//         actor.attemptsTo(Navigate.to('/'), PickExample.called(exampleName)),
+// );
 
 When(
     '{pronoun} log(s) in using {string} and {string}',
+
     async (actor: Actor, username: string, password: string) =>
         actor.attemptsTo(Authenticate.using(username, password)),
 );
@@ -34,4 +35,19 @@ Then(
     '{pronoun} should see that authentication has {string}',
     async (pronoun: Actor, expectedOutcome: string) =>
         pronoun.attemptsTo(VerifyAuthentication[expectedOutcome]()),
+);
+
+Given(
+    '{actor} starts with open browser and access to herokuapp',
+
+    async (actor: Actor) => {
+        actor.attemptsTo(Navigate.to('/'));
+    },
+);
+
+Given(
+    '{pronoun} choose the {string} example in herokuapp',
+    (pronoun: Actor, exampleName: string) => {
+        pronoun.attemptsTo(PickExample.called(exampleName)); // Write code here that turns the phrase above into concrete actions
+    },
 );

@@ -4,7 +4,8 @@ Feature: Form-Based Authentication
     I'd like to see an example
 
   Background:
-    Given Alice starts with the "Form Authentication" example
+    Given Alice starts with open browser and access to herokuapp
+    And she choose the "Form Authentication" example in herokuapp
 
   Scenario Outline: Using username and password to log in
         ["The Internet"](https://the-internet.herokuapp.com/) is an example application
