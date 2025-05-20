@@ -1,7 +1,7 @@
 import { Given, Then, When } from '@cucumber/cucumber';
 import { Actor } from '@serenity-js/core';
-
 import { Navigate } from '@serenity-js/web';
+
 import { Authenticate, VerifyAuthentication } from '../serenity/authentication';
 import { PickExample } from '../serenity/examples';
 
